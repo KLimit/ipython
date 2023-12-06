@@ -272,7 +272,11 @@ AUTO_SUGGEST_BINDINGS = [
         auto_suggest.backspace_and_resume_hint,
         ["backspace"],
         # no `has_suggestion` here to allow resuming if no suggestion
-        "default_buffer_focused & emacs_like_insert_mode",
+        "default_buffer_focused & emacs_like_insert_mode"
+        # and not when in an empty pair (when auto_match is on)
+        " & ("
+        "  ~auto_match | (~preceded_by_any_opening & ~followed_by_any_closing)"
+        ")",
     ),
     Binding(
         auto_suggest.resume_hinting,
