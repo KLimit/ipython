@@ -1,5 +1,0 @@
-pairs not getting deleted because prompt_toolkit's key_processor uses only the
-last match; the function `backspace_and_resume_hint` is registered after
-`delete_pair`.
-want to work out good way to either compose handlers or join these two handlers
-before binding them to backspace /<C-h>.
